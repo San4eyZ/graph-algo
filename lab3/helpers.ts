@@ -21,7 +21,7 @@ interface NextAddParams {
 export const nextAdd = (params: NextAddParams) => {
     const { F, ...newParams } = params;
 
-    let target: number;
+    let target: number = -1;
     let maxWeight: number = -Infinity;
 
     F.forEach((w) => {

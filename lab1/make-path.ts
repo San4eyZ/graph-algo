@@ -60,5 +60,5 @@ export function findPath(knightPosition: string, pawnPosition: string) {
         })
     }
 
-    return [];
+    return '';
 }

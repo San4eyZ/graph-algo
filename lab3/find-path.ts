@@ -13,6 +13,13 @@ const findPath = (start: number, end: number, graph: Graph) => {
 
     while (F.length > 0) {
         const w = nextAdd({ F, graph, D, S });
+
+        if (w === -1) {
+            break;
+        }
+
+        console.log(w);
+
         F = F.filter((v) => v !== w);
         S.push(w);
 

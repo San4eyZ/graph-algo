@@ -16,6 +16,8 @@ export default function findMinimalCarcase(g: Graph) {
         size[v] = 1;
     }
 
+    let weight = 0;
+
     while (T.length !== vertexes.length - 1) {
         const edge = queue.shift();
         const v = edge.start;
@@ -31,8 +33,10 @@ export default function findMinimalCarcase(g: Graph) {
             }
 
             T.push(edge);
+
+            weight += edge.weight;
         }
     }
 
-    return T;
+    return { carcase: T, weight };
 }
