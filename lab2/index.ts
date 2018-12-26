@@ -14,7 +14,7 @@ for (const file of files) {
     const array = content
         .toString()
         .replace(/\n/g, ' ')
-        .split(' ')
+        .split(/\s+/)
         .slice(1, -1)
         .map(Number);
 

@@ -21,13 +21,13 @@ interface NextAddParams {
 export const nextAdd = (params: NextAddParams) => {
     const { F, ...newParams } = params;
 
-    let target: number = -1;
+    let target: number;
     let maxWeight: number = -Infinity;
 
     F.forEach((w) => {
         const weight = newWeight({ w, ...newParams });
 
-        if (weight > maxWeight) {
+        if (weight >= maxWeight) {
             maxWeight = weight;
             target = w;
         }
@@ -41,6 +41,7 @@ export class Graph {
 
     public weight = (v: number, w: number) => {
         const prev = this.arr[w - 1];
+
         return prev.find((val, i) => i % 2 === 1 && prev[i - 1] === v) || -Infinity;
     };
 

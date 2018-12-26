@@ -10,7 +10,7 @@ const files = getDirectoryContent(inDir);
 for (const file of files) {
     const content = getFileContent(path.join(inDir, file));
 
-    const [a, b] = content.replace(/\r\n/g, ' ').split(' ');
+    const [a, b] = content.replace(/\r\n/g, ' ').split(/\s+/);
 
     writeToFile(path.join(outDir, file), lab1.findPath(a, b));
 }

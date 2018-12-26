@@ -14,12 +14,6 @@ const findPath = (start: number, end: number, graph: Graph) => {
     while (F.length > 0) {
         const w = nextAdd({ F, graph, D, S });
 
-        if (w === -1) {
-            break;
-        }
-
-        console.log(w);
-
         F = F.filter((v) => v !== w);
         S.push(w);
 
@@ -32,7 +26,7 @@ const findPath = (start: number, end: number, graph: Graph) => {
     }
 
     if (D[end] === -Infinity) {
-        return;
+        return { path: undefined, weight: -Infinity };
     }
 
     const path = [end];
